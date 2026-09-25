@@ -276,3 +276,9 @@ Usa los `id` devueltos al crear el votante y el candidato:
 **Ver estadísticas.** `GET http://127.0.0.1:8000/votes/statistics`
 
 **Consultar o eliminar un registro.** `GET` o `DELETE` a `http://127.0.0.1:8000/voters/1` y `http://127.0.0.1:8000/candidates/1`. Estas peticiones no llevan body.
+
+### Captura de estadísticas
+
+<img width="708" height="669" alt="image" src="https://github.com/user-attachments/assets/84dfc248-d564-4de7-a709-bd53136465b2" />
+
+
