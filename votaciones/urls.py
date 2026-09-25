@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from apps.candidate.views import CandidateDetailView, CandidateListCreateView
 from apps.vote.views import VoteListCreateView, VoteStatisticsView
@@ -23,6 +24,12 @@ from apps.voter.views import VoterDetailView, VoterListCreateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    re_path(r"^auth/token/?$", TokenObtainPairView.as_view(), name="token-obtain"),
+    re_path(
+        r"^auth/token/refresh/?$",
+        TokenRefreshView.as_view(),
+        name="token-refresh",
+    ),
     re_path(r"^voters/?$", VoterListCreateView.as_view(), name="voter-list"),
     re_path(r"^voters/(?P<pk>[0-9]+)/?$", VoterDetailView.as_view(), name="voter-detail"),
     re_path(r"^candidates/?$", CandidateListCreateView.as_view(), name="candidate-list"),
